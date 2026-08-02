@@ -1,0 +1,206 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* ===== HEADER CAROUSEL ===== */
+header {
+    width: 100%;
+    background: #020617;
+}
+
+.container {
+    background-color: #a36206;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+.nav-item .nav-link {
+    color: #020617;
+}
+
+.nav-link.active {
+    color: black;
+}
+
+.header-carousel {
+    position: relative;
+    width: 100%;
+    background: #a36206;
+    /* ή ό,τι χρώμα θες */
+
+    /* ΝΕΟ: responsive ύψος */
+    height: clamp(180px, 30vw, 340px);
+
+    /* Πολύ σημαντικό: να ΜΗΝ κρύβει τις κουκίδες */
+    overflow: visible;
+}
+
+.carousel-track {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    /* ΜΕΤΑΦΕΡΟΥΜΕ ΤΟ overflow ΕΔΩ */
+}
+
+.slide {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: min(960px, 80vw);
+    aspect-ratio: 960 / 325;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    background: #a36206;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45);
+    transition:
+        transform 0.5s ease,
+        opacity 0.5s ease;
+}
+
+/* όταν μια εικόνα είναι στο κέντρο */
+.slide--active img {
+    animation: zoomIn 4s ease-in-out forwards;
+}
+
+@keyframes zoomIn {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.10);
+    }
+}
+
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* για να φαίνεται ολόκληρη η εικόνα */
+    display: block;
+}
+
+/* Βελάκια */
+.slider-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    border: none;
+    background: rgba(15, 23, 42, 0.9);
+    color: #e5e7eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 18px;
+    z-index: 20;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.slider-nav--prev {
+    left: 10px;
+}
+
+.slider-nav--next {
+    right: 10px;
+}
+
+.slider-nav:hover {
+    background: #a36206;
+    color: #111827;
+    transform: translateY(-50%) scale(1.05);
+}
+
+/* Dots */
+/* η μπάρα που κρατάει τα dots */
+.dots-wrapper {
+    position: absolute;
+    left: 50%;
+    bottom: -12px;
+    /* λίγο έξω από το slider, σαν στην εικόνα */
+    transform: translateX(-50%);
+    z-index: 40;
+}
+
+
+.dots {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    background: #a36206;
+    /* μοβ χρώμα μπάρας */
+    border-radius: 999px;
+    box-shadow:
+        0 10px 18px rgba(0, 0, 0, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+/* μικρή "σκιά" / γλωσσίτσα στο κάτω μέρος της μπάρας */
+.dots::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -6px;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 4px;
+    background: #a36206;
+    border-radius: 0 0 6px 6px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.35);
+}
+
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    border: 2px solid rgba(255, 255, 255, 0.55);
+    background: transparent;
+    cursor: pointer;
+    opacity: 0.7;
+    transition:
+        background 0.25s ease,
+        transform 0.25s ease,
+        opacity 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.dot.dot--active {
+    background: #ffffff;
+    border-color: #ffffff;
+    transform: scale(1.2);
+    opacity: 1;
+}
+
+.dot:hover {
+    opacity: 1;
+    transform: scale(1.15);
+}
+
+@media (max-width: 768px) {
+    .slide {
+        width: 92vw;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-carousel {
+        height: 190px;
+    }
+}

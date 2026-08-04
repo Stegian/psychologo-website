@@ -33,12 +33,7 @@ header {
     position: relative;
     width: 100%;
     background: #a36206;
-    /* ή ό,τι χρώμα θες */
-
-    /* ΝΕΟ: responsive ύψος */
     height: clamp(180px, 30vw, 340px);
-
-    /* Πολύ σημαντικό: να ΜΗΝ κρύβει τις κουκίδες */
     overflow: visible;
 }
 
@@ -47,7 +42,6 @@ header {
     width: 100%;
     height: 100%;
     overflow: visible;
-    /* ΜΕΤΑΦΕΡΟΥΜΕ ΤΟ overflow ΕΔΩ */
 }
 
 .slide {
@@ -67,7 +61,6 @@ header {
         opacity 0.5s ease;
 }
 
-/* όταν μια εικόνα είναι στο κέντρο */
 .slide--active img {
     animation: zoomIn 4s ease-in-out forwards;
 }
@@ -82,16 +75,13 @@ header {
     }
 }
 
-
 .slide img {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    /* για να φαίνεται ολόκληρη η εικόνα */
     display: block;
 }
 
-/* Βελάκια */
 .slider-nav {
     position: absolute;
     top: 50%;
@@ -125,17 +115,13 @@ header {
     transform: translateY(-50%) scale(1.05);
 }
 
-/* Dots */
-/* η μπάρα που κρατάει τα dots */
 .dots-wrapper {
     position: absolute;
     left: 50%;
     bottom: -12px;
-    /* λίγο έξω από το slider, σαν στην εικόνα */
     transform: translateX(-50%);
     z-index: 40;
 }
-
 
 .dots {
     position: relative;
@@ -144,14 +130,12 @@ header {
     gap: 6px;
     padding: 6px 14px;
     background: #a36206;
-    /* μοβ χρώμα μπάρας */
     border-radius: 999px;
     box-shadow:
         0 10px 18px rgba(0, 0, 0, 0.3),
         0 0 0 1px rgba(255, 255, 255, 0.08);
 }
 
-/* μικρή "σκιά" / γλωσσίτσα στο κάτω μέρος της μπάρας */
 .dots::after {
     content: "";
     position: absolute;
@@ -164,7 +148,6 @@ header {
     border-radius: 0 0 6px 6px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.35);
 }
-
 
 .dot {
     width: 10px;
@@ -206,7 +189,6 @@ header {
 }
 
 /* ======= Services Section ======= */
-
 .services-section {
     padding: 90px 20px;
     background-color: #f7f3ed;
@@ -221,7 +203,7 @@ header {
 .services-heading {
     max-width: 600px;
     margin: 0 auto 50px auto;
-    text-align:center;   
+    text-align: center;
 }
 
 .services-label {
@@ -322,6 +304,123 @@ header {
     transform: translateY(-2px);
 }
 
+/* ======= Contact Section ======= */
+.contact-section {
+    padding: 90px 20px;
+    background: #1f2937;
+}
+
+.contact-inner {
+    width: min(1100px, 100%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 64px;
+    align-items: center;
+}
+
+.contact-label,
+.contact-card-label {
+    margin-bottom: 14px;
+    color: #d6a85f;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.contact-copy h2 {
+    max-width: 560px;
+    margin-bottom: 22px;
+    color: #ffffff;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    line-height: 1.15;
+}
+
+.contact-copy > p:not(.contact-label) {
+    max-width: 560px;
+    margin-bottom: 30px;
+    color: #d1d5db;
+    font-size: 1.05rem;
+    line-height: 1.8;
+}
+
+.contact-button {
+    width: fit-content;
+    padding: 14px 25px;
+    border: 1px solid #d6a85f;
+    border-radius: 999px;
+    background: #d6a85f;
+    color: #1f2937;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.contact-button:hover {
+    background: transparent;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.contact-card {
+    padding: 38px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.07);
+    box-shadow: 0 22px 55px rgba(0, 0, 0, 0.22);
+}
+
+.contact-steps {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.contact-steps li {
+    padding: 22px 0;
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 18px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.contact-steps li:first-child {
+    padding-top: 5px;
+}
+
+.contact-steps li > span {
+    color: #d6a85f;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+.contact-steps h3 {
+    margin-bottom: 7px;
+    color: #ffffff;
+    font-size: 1.12rem;
+}
+
+.contact-steps p {
+    margin: 0;
+    color: #cbd5e1;
+    line-height: 1.65;
+}
+
+.contact-privacy {
+    margin: 22px 0 0;
+    color: #9ca3af;
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+
 @media (max-width: 850px) {
     .services-grid {
         grid-template-columns: 1fr;
@@ -330,15 +429,30 @@ header {
     .services-card {
         min-height: 280px;
     }
+
+    .contact-inner {
+        grid-template-columns: 1fr;
+        gap: 42px;
+    }
 }
 
 @media (max-width: 480px) {
-    .services-section {
+    .services-section,
+    .contact-section {
         padding: 65px 16px;
     }
 
     .services-card {
         min-height: auto;
         padding: 26px;
+    }
+
+    .contact-card {
+        padding: 26px 22px;
+    }
+
+    .contact-steps li {
+        grid-template-columns: 38px 1fr;
+        gap: 12px;
     }
 }

@@ -46,7 +46,7 @@ header {
     position: relative;
     width: 100%;
     height: 100%;
-    overflow: visible;
+    overflow: hidden;
     /* ΜΕΤΑΦΕΡΟΥΜΕ ΤΟ overflow ΕΔΩ */
 }
 
@@ -295,6 +295,7 @@ header {
 }
 
 .services-link {
+    display: inline-block;
     margin-top: 32px;
     color: #a36206;
     font-weight: 700;
@@ -342,3 +343,12 @@ header {
         padding: 26px;
     }
 }
+
+/* ======Epikoinonia======= */
+
+.contact-section {
+    padding: 90px 20px;
+    background-color: #f7f3ed;
+    margin-top: 20px;
+}
+

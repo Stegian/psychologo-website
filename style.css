@@ -348,7 +348,375 @@ header {
 
 .contact-section {
     padding: 90px 20px;
-    background-color: #f7f3ed;
+    background-color: #eee4d7;
     margin-top: 20px;
 }
 
+/* Τίτλος του section */
+
+.contact-heading {
+    max-width: 650px;
+    margin: 0 auto 50px;
+    text-align: center;
+}
+
+.contact-label {
+    margin-bottom: 10px;
+    color: #a36206;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.contact-heading h2 {
+    margin-bottom: 16px;
+    color: #1f2937;
+    font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.contact-heading > p:last-child {
+    margin: 0;
+    color: #5f6368;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+/* Φόρμα και χάρτης δίπλα-δίπλα */
+
+.contact-grid {
+    width: min(1100px, 100%);
+    margin: 0 auto;
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+    align-items: stretch;
+}
+
+/* Αριστερή στήλη: φόρμα */
+
+.contact-form-container {
+    padding: 36px;
+    border: 1px solid rgba(163, 98, 6, 0.18);
+    border-radius: 18px;
+    background-color: #ffffff;  
+    box-shadow: 0 12px 35px rgba(15, 23, 42, 0.08);
+}
+
+.contact-form-container h3 {
+    margin-bottom: 28px;
+    color: #1f2937;
+    font-size: 1.6rem;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+/* Κάθε πεδίο της φόρμας */
+
+.contact-form-group,
+.contact-message {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.contact-form label {
+    color: #374151;
+    font-size: 0.95rem;
+    font-weight: 600;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 14px 16px;
+
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+
+    background-color: #fafafa;
+    color: #1f2937;
+
+    font-family: inherit;
+    font-size: 1rem;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.contact-form input {
+    min-height: 50px;
+}
+
+.contact-form textarea {
+    min-height: 150px;
+    line-height: 1.6;
+    resize: vertical;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: #9ca3af;
+}
+
+/* Όταν ο χρήστης πατάει μέσα σε πεδίο */
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #a36206;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(163, 98, 6, 0.13);
+}
+
+/* Checkbox συγκατάθεσης */
+
+.contact-privacy {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.contact-privacy input {
+    width: 18px;
+    height: 18px;
+    min-height: auto;
+    margin-top: 3px;
+
+    flex-shrink: 0;
+    accent-color: #a36206;
+}
+
+.contact-privacy label {
+    color: #64676c;
+    font-size: 0.88rem;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+/* Κουμπί αποστολής */
+
+.contact-submit-button {
+    width: fit-content;
+    padding: 13px 25px;
+
+    border: none;
+    border-radius: 999px;
+
+    background-color: #a36206;
+    color: #ffffff;
+
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.contact-submit-button:hover {
+    background-color: #7f4c05;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(127, 76, 5, 0.22);
+}
+
+/* Δεξιά στήλη: χάρτης και στοιχεία */
+
+.contact-map-container {
+    border-radius: 18px;
+    background-color: #1f2937;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+
+    box-shadow: 0 12px 35px rgba(15, 23, 42, 0.12);
+}
+
+/* Χάρτης */
+
+.contact-map {
+    position: relative;
+    min-height: 340px;
+    background-color: #d8d5cf;
+}
+
+.contact-map iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 340px;
+
+    border: 0;
+    display: block;
+
+    /*
+       Το iframe δεν κρατάει το κλικ.
+       Το κλικ πηγαίνει στο <a> που βρίσκεται από πάνω.
+    */
+    pointer-events: none;
+}
+
+/* Διαφανής σύνδεσμος πάνω από όλο τον χάρτη */
+
+.contact-map-link {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+}
+
+/* Μήνυμα πάνω στον χάρτη */
+
+.contact-map-message {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    z-index: 3;
+
+    padding: 9px 14px;
+    border-radius: 999px;
+
+    background-color: rgba(31, 41, 55, 0.92);
+    color: #ffffff;
+
+    font-size: 0.85rem;
+    font-weight: 700;
+
+    pointer-events: none;
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+}
+
+/* Στοιχεία επικοινωνίας */
+
+.contact-details {
+    padding: 32px;
+    color: #ffffff;
+}
+
+.contact-details > h3 {
+    margin-bottom: 28px;
+    color: #ffffff;
+    font-size: 1.45rem;
+}
+
+.contact-detail {
+    padding: 0 0 0 32px;
+    margin-bottom: 22px;
+}
+
+.contact-detail h4 {
+    margin-bottom: 6px;
+    color: #d7ae73;
+    font-size: 0.95rem;
+}
+
+.contact-detail p {
+    margin: 0;
+    color: #d1d5db;
+    line-height: 1.7;
+}
+
+.contact-detail a {
+    color: #d1d5db;
+    line-height: 1.7;
+    text-decoration: none;
+}
+
+.contact-detail a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* Κουμπί οδηγιών */
+
+.contact-directions-button {
+    width: fit-content;
+    margin: 8px 32px;
+    padding: 12px 20px;
+
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 999px;
+
+    color: #ffffff;
+    font-weight: 700;
+    text-decoration: none;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.contact-directions-button:hover {
+    background-color: #ffffff;
+    color: #1f2937;
+    transform: translateY(-2px);
+}
+
+/* Tablet και κινητό */
+
+@media (max-width: 850px) {
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .contact-section {
+        padding: 65px 16px;
+    }
+
+    .contact-heading {
+        margin-bottom: 36px;
+    }
+
+    .contact-form-container {
+        padding: 26px 20px;
+    }
+
+    .contact-submit-button {
+        width: 100%;
+    }
+
+    .contact-map {
+        min-height: 290px;
+    }
+
+    .contact-map iframe {
+        min-height: 290px;
+    }
+
+    .contact-details {
+        padding: 26px 22px;
+    }
+
+    .contact-map-message {
+        right: 10px;
+        bottom: 10px;
+        font-size: 0.78rem;
+    }
+
+}

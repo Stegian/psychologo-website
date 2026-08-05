@@ -490,6 +490,7 @@ header {
     height: 18px;
     min-height: auto;
     margin-top: 3px;
+    padding: 0;
 
     flex-shrink: 0;
     accent-color: #a36206;
@@ -616,7 +617,6 @@ header {
 }
 
 .contact-detail {
-    padding: 0 0 0 32px;
     margin-bottom: 22px;
 }
 
@@ -647,7 +647,7 @@ header {
 
 .contact-directions-button {
     width: fit-content;
-    margin: 8px 32px;
+    margin-top: 8px;
     padding: 12px 20px;
 
     border: 1px solid rgba(255, 255, 255, 0.45);
